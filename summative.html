@@ -35,6 +35,27 @@
    <use xlink:href="#gentle-wave" x="50" y="6" fill="#fff"/>  
   </g>
 </svg>
+    <script>
+        document.getElementById('jobApplicationForm').addEventListener('submit', function(event) {
+            var form = event.target;
+            var errorMessages = document.getElementById('errorMessages');
+            errorMessages.innerHTML = '';
+            if (!phonePattern.test(phone)) {
+                errorMessages.innerHTML += '<p>Phone number format should be (254)71234568.</p>';
+                event.preventDefault();
+            }
+
+            if (!datePattern.test(eventDate)) {
+                errorMessages.innerHTML += '<p>Date format should be MM/DD/YYYY.</p>';
+                event.preventDefault();
+            }
+
+            if (tickets < 1 || tickets > 10) {
+                errorMessages.innerHTML += '<p>Number of tickets should be between 1 and 10.</p>';
+                event.preventDefault();
+            }
+        });
+    </script>
 <div class="container">
     <h2>Event Registration Form</h2>
     <form id="registrationForm">

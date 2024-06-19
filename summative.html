@@ -49,7 +49,10 @@
                 errorMessages.innerHTML += '<p>Date format should be MM/DD/YYYY.</p>';
                 event.preventDefault();
             }
-
+            if (tickets < 1 || tickets > 10) {
+                errorMessages.innerHTML += '<p>Number of tickets should be between 1 and 10.</p>';
+                event.preventDefault();
+            }
             
         });
     </script>
